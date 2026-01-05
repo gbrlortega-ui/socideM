@@ -1,0 +1,7 @@
+{
+  "name": "socidéM",
+  "description": "Painel Interdisciplinar de Medicina - Integração clínica e acadêmica em um só lugar.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
