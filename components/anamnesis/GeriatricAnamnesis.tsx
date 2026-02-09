@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { FormStep, PatientType, ClinicalRecord, RiskLevel } from '../../types';
 import IdentificationSection from '../IdentificationSection';
@@ -53,7 +52,7 @@ export default function GeriatricAnamnesis({ onBack }: Props) {
       <div className="flex-1 flex flex-col p-6 lg:p-12 overflow-y-auto">
         <header className="max-w-[1000px] mx-auto w-full flex flex-col md:flex-row items-start md:items-center justify-between mb-8 no-print gap-6">
           <div className="flex items-center gap-4">
-            <button onClick={onBack} className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-all group shadow-sm">
+            <button onClick={onBack} className="w-12 h-12 rounded-2xl bg-white border-2 border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-all group shadow-sm">
               <span className="material-symbols-outlined text-slate-400 group-hover:text-primary group-hover:-translate-x-1 transition-all">arrow_back</span>
             </button>
             <div>
@@ -73,7 +72,8 @@ export default function GeriatricAnamnesis({ onBack }: Props) {
 
         <main className="max-w-[1000px] mx-auto w-full glass-card p-8 lg:p-14 rounded-[3rem] border border-slate-200 shadow-soft relative mb-12">
           {currentStepIndex === 0 && <IdentificationSection data={record.id} patientType={PatientType.GERIATRIC} onChange={(id) => setRecord({...record, id})} />}
-          {currentStepIndex === 1 && <HistorySection qpd={record.Clar || ''} hma={record.hma || ''} patientType={PatientType.GERIATRIC} onChange={(updates) => setRecord({ ...record, qd: updates.qpd ?? record.qd, hma: updates.hma ?? record.hma })} />}
+          {/* Fix: changed record.Clar to record.qd to resolve the property access error */}
+          {currentStepIndex === 1 && <HistorySection qpd={record.qd || ''} hma={record.hma || ''} patientType={PatientType.GERIATRIC} onChange={(updates) => setRecord({ ...record, qd: updates.qpd ?? record.qd, hma: updates.hma ?? record.hma })} />}
           {currentStepIndex === 2 && <ISDASection data={record.isda} patientType={PatientType.GERIATRIC} onChange={(isda) => setRecord({ ...record, isda })} />}
           {currentStepIndex === 3 && (
             <div className="flex flex-col gap-6 animate-fade-in">

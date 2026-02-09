@@ -58,12 +58,12 @@ const COLLECTIVE_SECTIONS: Section[] = [
       { id: 'territorio', category: "Comunitária", status: "Disponível", title: "Território", description: "Mapeamento, territorialização e diagnóstico sociossanitário da área de abrangência.", icon: "map", isAvailable: true },
       { id: 'cadastro', category: "Gestão", status: "Disponível", title: "Cadastro e Prontuário", description: "Organização do e-SUS, cadastro individual e familiar e prontuário eletrônico.", icon: "assignment_ind", isAvailable: true },
       { id: 'acolhimento', category: "Acesso", status: "Disponível", title: "Acolhimento", description: "Escuta qualificada e classificação de risco para demanda espontânea na UBS.", icon: "hail", isAvailable: true },
-      { id: 'estratificacao', category: "Clínica", status: "Em breve", title: "Estratificação de Risco", description: "Classificação de usuários com condições crônicas (HAS/DM) para fluxos de cuidado.", icon: "equalizer", isAvailable: false },
-      { id: 'pts', category: "Cuidado", status: "Em breve", title: "PTS", description: "Elaboração do Plano Terapêutico Singular para casos de alta complexidade biopsicossocial.", icon: "assignment", isAvailable: false },
-      { id: 'protocolos', category: "Diretrizes", status: "Em breve", title: "Protocolos da APS", description: "Linhas de cuidado e guias de conduta clínica oficiais do Ministério da Saúde.", icon: "menu_book", isAvailable: false },
-      { id: 'equipe', category: "Gestão", status: "Em breve", title: "Trabalho em Equipe", description: "Reuniões de equipe, matriciamento e apoio matricial com o NASF.", icon: "groups_3", isAvailable: false },
-      { id: 'visita', category: "Cuidado", status: "Em breve", title: "Visita Domiciliar", description: "Protocolo de atendimento no domicílio e papel de cada categoria profissional.", icon: "home_health", isAvailable: false },
-      { id: 'educacao', category: "Promoção", status: "Em breve", title: "Educação em Saúde", description: "Metodologias ativas para grupos operativos e ações comunitárias.", icon: "campaign", isAvailable: false },
+      { id: 'estratificacao', category: "Clínica", status: "Disponível", title: "Estratificação de Risco", description: "Classificação de usuários com condições crônicas (HAS/DM) para fluxos de cuidado.", icon: "equalizer", isAvailable: true },
+      { id: 'pts', category: "Cuidado", status: "Disponível", title: "PTS", description: "Elaboração do Plano Terapêutico Singular para casos de alta complexidade biopsicossocial.", icon: "assignment", isAvailable: true },
+      { id: 'protocolos', category: "Diretrizes", status: "Disponível", title: "Protocolos da APS", description: "Linhas de cuidado e guias de conduta clínica oficiais do Ministério da Saúde.", icon: "menu_book", isAvailable: true },
+      { id: 'equipe', category: "Gestão", status: "Disponível", title: "Trabalho em Equipe", description: "Reuniões de equipe, matriciamento e apoio matricial com o NASF.", icon: "groups_3", isAvailable: true },
+      { id: 'visita', category: "Cuidado", status: "Disponível", title: "Visita Domiciliar", description: "Protocolo de atendimento no domicílio e papel de cada categoria profissional.", icon: "home_health", isAvailable: true },
+      { id: 'educacao', category: "Promoção", status: "Disponível", title: "Educação em Saúde", description: "Metodologias ativas para grupos operativos e ações comunitárias.", icon: "campaign", isAvailable: true },
     ]
   }
 ];

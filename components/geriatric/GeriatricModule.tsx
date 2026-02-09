@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import FunctionalityTool from './tools/FunctionalityTool';
 import CognitionMoodTool from './tools/CognitionMoodTool';
-import FrailtyTool from './tools/FrailtyTool';
+import FrailtyNutritionTool from './tools/FrailtyNutritionTool';
 import MobilityFallsTool from './tools/MobilityFallsTool';
 import NutritionTool from './tools/NutritionTool';
 import ClinicalRiskTool from './tools/ClinicalRiskTool';
 import GeriatricPharmacyTool from './tools/GeriatricPharmacyTool';
+import IVCF20Tool from './tools/IVCF20Tool';
 
 interface Tool {
   id: string;
@@ -22,6 +23,12 @@ interface Section {
 }
 
 const SECTIONS: Section[] = [
+  {
+    title: "Triagem Inicial e Multidimensional",
+    tools: [
+      { id: 'ivcf20', category: "Protocolo Ouro", title: "IVCF-20 Oficial", description: "Índice de Vulnerabilidade Clínico-Funcional. Primeiro passo da avaliação.", icon: "analytics", component: "ivcf20" },
+    ]
+  },
   {
     title: "Funcionalidade e Autonomia",
     tools: [
@@ -87,7 +94,8 @@ const GeriatricModule: React.FC = () => {
     switch (selection.comp) {
       case 'functionality': return <FunctionalityTool onBack={props.onBack} initialScale={selection.id as any} />;
       case 'cognition': return <CognitionMoodTool onBack={props.onBack} initialTab={selection.id as any} />;
-      case 'frailty': return <FrailtyTool onBack={props.onBack} initialTab={selection.id as any} />;
+      case 'frailty': return <FrailtyNutritionTool onBack={props.onBack} initialTab={selection.id as any} />;
+      case 'ivcf20': return <IVCF20Tool onBack={props.onBack} />;
       case 'mobility': return <MobilityFallsTool onBack={props.onBack} initialTab={selection.id as any} />;
       case 'nutrition': return <NutritionTool onBack={props.onBack} initialTab={selection.id as any} />;
       case 'risk': return <ClinicalRiskTool onBack={props.onBack} initialTab={selection.id as any} />;
@@ -126,10 +134,10 @@ const GeriatricModule: React.FC = () => {
                 <button
                   key={tool.id}
                   onClick={() => setSelection({ comp: tool.component, id: tool.id })}
-                  className="group relative bg-white border-2 border-slate-200 p-6 rounded-[2rem] transition-all duration-300 shadow-card hover:shadow-strong hover:border-purple-600 hover:-translate-y-1 text-left flex flex-col gap-4"
+                  className={`group relative bg-white border-2 p-6 rounded-[2rem] transition-all duration-300 shadow-card hover:shadow-strong hover:-translate-y-1 text-left flex flex-col gap-4 ${tool.id === 'ivcf20' ? 'border-purple-600 ring-4 ring-purple-50' : 'border-slate-200 hover:border-purple-600'}`}
                 >
                   <div className="flex justify-between items-start">
-                    <div className="size-12 rounded-2xl bg-purple-50 text-purple-600 border border-purple-100 flex items-center justify-center group-hover:bg-purple-600 group-hover:text-white transition-all">
+                    <div className={`size-12 rounded-2xl flex items-center justify-center transition-all ${tool.id === 'ivcf20' ? 'bg-purple-600 text-white' : 'bg-purple-50 text-purple-600 border border-purple-100 group-hover:bg-purple-600 group-hover:text-white'}`}>
                       <span className="material-symbols-outlined text-2xl font-black">{tool.icon}</span>
                     </div>
                     <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{tool.category}</span>
